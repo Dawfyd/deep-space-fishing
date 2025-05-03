@@ -1,0 +1,64 @@
+<div class="min-h-screen bg-gradient-to-b from-gray-900 to-black p-6 rounded-2xl shadow-2xl border border-cyan-500/30">
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between m-4 xl:m-6">
+
+    <div class="flex flex-col items-center md:items-start mb-6 md:mb-0 text-center md:text-left">
+      <h1
+        class="font-bold text-cyan-400 tracking-wide px-4
+        text-base xxs:text-lg xs:text-lg sm:text-xl md:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl"
+      >
+        Welcome to
+      </h1>
+      <h1
+        class="font-bold text-cyan-400 tracking-wide px-4
+        text-lg xxs:text-xl xs:text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl 2xl:text-5xl 3xl:text-6xl 4xl:text-7xl"
+      >
+        Deep Space Fishing
+      </h1>
+    </div>
+
+
+    <div class="flex justify-center md:justify-end gap-2 xxs:gap-3 sm:gap-4">
+      <button
+      (click)="selectedView = 'leaderboard'"
+      [ngClass]="{
+        'bg-cyan-500 text-black': selectedView === 'leaderboard',
+        'bg-gray-800 text-cyan-300 hover:bg-cyan-700/40': selectedView !== 'leaderboard'
+      }"
+      class="rounded-lg font-semibold transition-colors duration-200 border border-cyan-400
+        text-[0.65rem] xxs:text-[0.75rem] xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl
+        px-2 xxs:px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 2xl:px-12 3xl:px-14 4xl:px-16
+        py-1 xxs:py-1.5 xs:py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-5 2xl:py-6 3xl:py-7 4xl:py-8"
+    >
+      Leaderboard
+    </button>
+
+    <button
+      (click)="selectedView = 'market'"
+      [ngClass]="{
+        'bg-cyan-500 text-black': selectedView === 'market',
+        'bg-gray-800 text-cyan-300 hover:bg-cyan-700/40': selectedView !== 'market'
+      }"
+      class="rounded-lg font-semibold transition-colors duration-200 border border-cyan-400
+        text-[0.65rem] xxs:text-[0.75rem] xs:text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-5xl
+        px-2 xxs:px-3 xs:px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 2xl:px-12 3xl:px-14 4xl:px-16
+        py-1 xxs:py-1.5 xs:py-2 sm:py-2.5 md:py-3 lg:py-4 xl:py-5 2xl:py-6 3xl:py-7 4xl:py-8"
+    >
+      Market
+    </button>
+
+    </div>
+  </div>
+
+  <div
+    *ngIf="isOffline"
+    class="bg-yellow-900 text-yellow-300 p-2 rounded text-center border border-yellow-600 mb-4
+      text-[0.65rem] xxs:text-[0.75rem] xs:text-sm sm:text-base md:text-base lg:text-lg"
+  >
+    You are offline. You are viewing cached data.
+  </div>
+
+  <div>
+    <app-leaderboard-table *ngIf="selectedView === 'leaderboard'"></app-leaderboard-table>
+    <app-market-table *ngIf="selectedView === 'market'"></app-market-table>
+  </div>
+</div>

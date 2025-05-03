@@ -1,0 +1,11 @@
+@keyframes pendulum {
+  0%   { transform: rotateZ(-10deg); }
+  50%  { transform: rotateZ(10deg); }
+  100% { transform: rotateZ(-10deg); }
+}
+
+.animate-pendulum {
+  display: inline-block;
+  animation: pendulum 3s ease-in-out infinite;
+  transform-origin: top center;
+}

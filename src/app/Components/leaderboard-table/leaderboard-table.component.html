@@ -1,0 +1,46 @@
+<div class="bg-gradient-to-b from-gray-900 to-black p-4 sm:p-6 md:p-4 lg:p-10 xl:p-12 rounded-2xl shadow-2xl border border-cyan-500/30">
+  <div class="relative flex items-center justify-center">
+    <h2 class="text-cyan-400 font-bold m-4 text-center tracking-wide
+               text-lg xxs:text-xl xs:text-xl sm:text-2xl md:text-3xl
+               lg:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl">
+      Galactic Hall of Fame
+    </h2>
+    <span class="ml-4 animate-twinkle text-white text-2xl md:text-4xl">✨</span>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-[500px] w-full text-cyan-200 text-[0.6rem] xs:text-sm sm:text-base md:text-base lg:text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl 4xl:text-[2.5rem]">
+      <thead>
+        <tr class="text-cyan-400 border-b border-cyan-600">
+          <th class="py-1  sm:py-3 md:py-4 px-2">Rank</th>
+          <th class="py-1  sm:py-3 md:py-4 px-2">Username</th>
+          <th class="py-1  sm:py-3 md:py-4 px-2">Level</th>
+          <th class="py-1  sm:py-3 md:py-4 px-2">XP</th>
+          <th class="py-1  sm:py-3 md:py-4 px-2">Gold</th>
+          <th class="py-1  sm:py-3 md:py-4 px-2">Fish Emojis</th>
+          <th class="py-1  sm:py-3 md:py-4 px-2">Emoji Description</th>
+          <th class="py-1  sm:py-3 md:py-4 px-2">Infected</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of leaderboard" class="hover:bg-cyan-800/10">
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">{{ player.rank }}</td>
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">{{ player.username }}</td>
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">{{ player.level }}</td>
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">{{ player.xp }}</td>
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">{{ player.gold }}</td>
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">{{ player.fishEmojis }}</td>
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">{{ player.emojiDescription }}</td>
+          <td class="py-1  sm:py-3 md:py-4 px-2 text-center">
+            <span [ngClass]="{
+              'text-green-400': !player.isInfected,
+              'text-red-500': player.isInfected
+            }">
+              {{ player.isInfected ? 'Yes' : 'No' }}
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

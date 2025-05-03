@@ -54,8 +54,8 @@
               "outputHashing": "all",
               "sourceMap": false,
               "namedChunks": false,
-              "aot": true,
-              "serviceWorker": "ngsw-config.json"
+              "aot": true
+
             },
             "development": {
               "optimization": false,
